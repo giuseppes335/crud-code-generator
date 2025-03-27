@@ -1,0 +1,17 @@
+{
+  "name": "vendor_name/sab101",
+  "description": "description",
+  "minimum-stability": "stable",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "giuseppescrudgenerator",
+      "email": "giuseppescrudgenerator@gmail.com"
+    }
+  ],
+  "require": {
+  },
+  "autoload": {
+    "psr-4": {"Giuseppe\\": "\\"}
+  }
+}

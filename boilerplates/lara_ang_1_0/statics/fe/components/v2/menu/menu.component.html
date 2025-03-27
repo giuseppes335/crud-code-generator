@@ -1,0 +1,16 @@
+
+<nav id="sidebarMenu" class="d-md-block bg-light sidebar collapse">
+  <div class="position-sticky pt-3">
+    <ul class="nav flex-column">
+      <li class="nav-item" *ngFor="let menuAction of menuActions">
+        <a class="nav-link active" aria-current="page" href="{{ fe_path + '/#' + menuAction.optionValue }}">
+          <span data-feather="home"></span>
+          {{ menuAction.optionHtml }}
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+
+

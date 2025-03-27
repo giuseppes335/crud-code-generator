@@ -1,0 +1,33 @@
+<form>
+
+  <table class="my-table-layout">
+    <tr>
+      <td>
+        <label for="sort-field">Sort field</label>
+      </td>
+      <td>
+        <select id="sort-field" name="sort-field" class="form-select" [(ngModel)]="sortField" (change)="sortChangeFn({sortDir: sortDir, sortField: sortField})">
+          <option value=""></option>
+          <option *ngFor="let field of fields" value="{{ field.optionValue }}">{{ field.optionHtml }}</option>
+        </select>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <label for="sort-dir">Sort direction</label>
+      </td>
+      <td>
+        <select id="sort-dir" name="sort-dir" class="form-select" [(ngModel)]="sortDir" (change)="sortChangeFn({sortDir: sortDir, sortField: sortField})">
+          <option value=""></option>
+          <option value="asc">Asc</option>
+          <option value="desc">Desc</option>
+        </select>
+      </td>
+    </tr>
+  </table>
+
+</form>
+
+
+
+

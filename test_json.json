@@ -1,0 +1,173 @@
+{
+    "app_name": "Demo App",
+    "tables": [
+        {
+            "name": "category",
+            "plural_name": "categories",
+            "html_form_label": "Category form",
+            "html_list_label": "Category table",
+            "id": "id",
+            "fields": [
+                {
+                    "name": "id",
+                    "label": "#",
+                    "html_type": "text",
+                    "data_type": "number",
+                    "validators": []
+                },
+                {
+                    "name": "name",
+                    "label": "Name",
+                    "html_type": "text",
+                    "data_type": "string",
+                    "validators": ["required","maxlength","notUnique"]
+                },
+                {
+                    "name": "description",
+                    "label": "Description",
+                    "html_type": "textarea",
+                    "data_type": "text",
+                    "validators": ["maxlength"]
+                }
+            ],
+            "subtables": [
+                {
+                    "name": "product",
+                    "alias": "products_of_category",
+                    "inverse_ref": "category_id"
+                }
+            ]
+        },
+        {
+            "name": "product",
+            "plural_name": "products",
+            "html_form_label": "Product form",
+            "html_list_label": "Products table",
+            "id": "id",
+            "fields": [
+                {
+                    "name": "id",
+                    "label": "#",
+                    "html_type": "text",
+                    "data_type": "number",
+                    "validators": []
+                },
+                {
+                    "name": "name",
+                    "label": "Name",
+                    "html_type": "text",
+                    "data_type": "string",
+                    "validators": ["required","maxlength","notUnique"]
+                },
+                {
+                    "name": "availability",
+                    "label": "Availability",
+                    "html_type": "checkbox",
+                    "data_type": "boolean",
+                    "validators": []
+                },
+                {
+                    "name": "price",
+                    "label": "Price",
+                    "html_type": "text",
+                    "data_type": "float",
+                    "validators": ["pattern"]
+                },
+                {
+                    "name": "expiration",
+                    "label": "Expiration",
+                    "html_type": "date",
+                    "data_type": "date",
+                    "validators": []
+                },
+                {
+                    "name": "category_id",
+                    "label": "Category",
+                    "html_type": "select",
+                    "data_type": "number",
+                    "validators": [],
+                    "ref": {
+                        "table_ref": "category",
+                        "id_ref": "id",
+                        "label_ref": "name"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "provider",
+            "plural_name": "providers",
+            "html_form_label": "Provider form",
+            "html_list_label": "Providers table",
+            "id": "id",
+            "fields": [
+                {
+                    "name": "id",
+                    "label": "#",
+                    "html_type": "text",
+                    "data_type": "number",
+                    "validators": []
+                },
+                {
+                    "name": "name",
+                    "label": "Name",
+                    "html_type": "text",
+                    "data_type": "string",
+                    "validators": ["required","maxlength","notUnique"]
+                },
+                {
+                    "name": "category_id",
+                    "label": "Categories",
+                    "html_type": "select",
+                    "data_type": "number",
+                    "validators": [],
+                    "ref": {
+                        "table_ref": "category",
+                        "id_ref": "id",
+                        "label_ref": "name",
+                        "multiple_table_ref": "category_of_provider"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "category_of_provider",
+            "plural_name": "categories_of_providers",
+            "html_form_label": "Category of provider form",
+            "html_list_label": "Categories of providers table",
+            "id": "id",
+            "fields": [
+                {
+                    "name": "id",
+                    "label": "#",
+                    "html_type": "text",
+                    "data_type": "number",
+                    "validators": []
+                },{
+                    "name": "provider_id",
+                    "label": "Provider",
+                    "html_type": "select",
+                    "data_type": "number",
+                    "validators": [],
+                    "ref": {
+                        "table_ref": "provider",
+                        "id_ref": "id",
+                        "label_ref": "name"
+                    }
+                },
+                {
+                    "name": "category_id",
+                    "label": "Category",
+                    "html_type": "select",
+                    "data_type": "number",
+                    "validators": [],
+                    "ref": {
+                        "table_ref": "category",
+                        "id_ref": "id",
+                        "label_ref": "name"
+                    }
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,14 @@
+<form>
+
+  <table class="my-table-layout">
+    <tr>
+      <td>
+        <label for="search-string">Search string</label>
+      </td>
+      <td>
+        <input id="search-string" type="text" class="form-control" name="search-string" [(ngModel)]="searchString" (input)="searchStringChangeFn({searchString: searchString})">
+      </td>
+    </tr>
+  </table>
+
+</form>

@@ -1,0 +1,10 @@
+<ul class="invalid" *ngIf="formControl?.invalid && (formControl?.dirty || formControl?.touched)">
+  <ng-container *ngFor="let validator of validators">
+    <li *ngIf="getError(validator)">
+      <span *ngIf="validator === 'required'">Field is required</span>
+      <span *ngIf="validator === 'notUnique'">Field is not unique</span>
+      <span *ngIf="validator === 'maxlength'">Too many characters</span>
+      <span *ngIf="validator === 'pattern'">Unknown format</span>
+    </li>
+  </ng-container>
+</ul>
