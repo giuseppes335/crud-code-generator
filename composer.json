@@ -2,7 +2,7 @@
   "name": "vendor_name/sab101",
   "description": "description",
   "minimum-stability": "stable",
-  "license": "proprietary",
+  "license": "MIT license",
   "authors": [
     {
       "name": "giuseppes335",
